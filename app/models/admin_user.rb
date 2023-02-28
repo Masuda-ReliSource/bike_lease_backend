@@ -6,6 +6,7 @@ class AdminUser < ApplicationRecord
   has_many :created_admins,
            foreign_key: 'created_by',
            class_name: 'AdminUser'
+  has_many :dealers
   belongs_to :main_admin,
              foreign_key: 'created_by',
              class_name: 'AdminUser',
@@ -15,6 +16,7 @@ class AdminUser < ApplicationRecord
        _prefix: :admin
   enum role_type: { super_admin: 0, admin: 1 }
 
+  # validation
   validates :phone,
             uniqueness: true,
             presence: true
@@ -22,4 +24,5 @@ class AdminUser < ApplicationRecord
             presence: true,
             uniqueness: true,
             format: { with: URI::MailTo::EMAIL_REGEXP }
+  # TODO: custom validation for super_admin mail and dealer mail can't be same
 end

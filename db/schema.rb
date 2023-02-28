@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_125625) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_134957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,4 +26,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_125625) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "dealers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone"
+    t.integer "status"
+    t.bigint "admin_users_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_users_id"], name: "index_dealers_on_admin_users_id"
+  end
+
+  add_foreign_key "dealers", "admin_users", column: "admin_users_id"
 end
