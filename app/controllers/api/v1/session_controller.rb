@@ -20,11 +20,7 @@ module Api
       private
 
       def find_user(params)
-        if params[:user_type] == 'admin'
-          AdminUser.find_by(email: params[:email])
-        else
-          Dealer.find_by(email: params[:email])
-        end
+        AdminUser.find_by(email: params[:email]) || Dealer.find_by(email: params[:email])
       end
     end
   end
