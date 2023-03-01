@@ -4,6 +4,7 @@ module Api
   module V1
     # Login class
     class SessionController < ApplicationController
+      skip_before_action :authorize_user, only: [:create]
       def create
         user = find_user(params)
         if user&.authenticate(params[:password])
