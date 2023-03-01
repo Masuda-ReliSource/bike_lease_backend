@@ -3,6 +3,7 @@ class Dealer < ApplicationRecord
   has_secure_token :auth_token, length: 36
 
   # Association
+  has_many :bikes
   belongs_to :admin_user
 
   # enum

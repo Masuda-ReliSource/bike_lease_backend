@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_01_130645) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_131425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_130645) do
     t.string "auth_token"
   end
 
+  create_table "bikes", force: :cascade do |t|
+    t.string "make"
+    t.string "model"
+    t.string "year"
+    t.integer "mileage"
+    t.bigint "dealer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dealer_id"], name: "index_bikes_on_dealer_id"
+  end
+
   create_table "dealers", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -40,5 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_130645) do
     t.index ["admin_user_id"], name: "index_dealers_on_admin_user_id"
   end
 
+  add_foreign_key "bikes", "dealers"
   add_foreign_key "dealers", "admin_users"
 end
