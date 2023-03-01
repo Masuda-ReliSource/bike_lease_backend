@@ -1,0 +1,2 @@
+class BikeLease < ApplicationRecord
+end

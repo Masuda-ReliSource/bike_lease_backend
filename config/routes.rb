@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       post '/sign_in', to: 'session#create'
       resources :admin_users, only: [:create]
       resources :dealers, only: [:create]
-      resources :bikes, only: [:create]
+      resources :bikes, only: %i[index create]
     end
   end
   # Defines the root path route ("/")

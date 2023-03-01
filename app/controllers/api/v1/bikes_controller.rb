@@ -4,6 +4,13 @@ module Api
   module V1
     # Bike API
     class BikesController < ApplicationController
+      def index
+        bikes = Bike.where(dealer_id: @current_user.id).order(id: :desc)
+        render json: BikeSerializer.new(bikes).serialized_json, status: :ok
+      rescue StandardError => e
+        Rails.logger.error("Bike index API failed: #{e.message}")
+        render json: failed_response(e.message), status: :internal_server_error
+      end
       def create
         if @current_user.class.name.to_s == 'AdminUser'
           render json: failed_response('Admin can not create dealer'), status: :forbidden
