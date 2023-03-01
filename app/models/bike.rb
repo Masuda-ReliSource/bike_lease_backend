@@ -9,4 +9,7 @@ class Bike < ApplicationRecord
   enum mileage: { '60-70': 0,
                   '70-80': 1,
                   '80-90': 2 }
+
+  # Validation
+  validates_uniqueness_of :dealer_id, scope: [:make, :mileage, :year]
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# admin serializer
+# admin/dealer serializer
 class UserSerializer
   include FastJsonapi::ObjectSerializer
   attributes :id, :name, :email, :status
