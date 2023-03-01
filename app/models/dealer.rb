@@ -1,4 +1,7 @@
 class Dealer < ApplicationRecord
+  has_secure_password validations: false
+  has_secure_token :auth_token, length: 36
+
   # Association
   belongs_to :admin_user
 

@@ -10,7 +10,7 @@ module Api
                                   role_type: :admin))
         render json: UserSerializer.new(admin).serialized_json, status: :created
       rescue StandardError => e
-        Rails.logger.error("Authentication API failed: #{e.message}")
+        Rails.logger.error("Admin create API failed: #{e.message}")
         render json: failed_response(e.message), status: :internal_server_error
       end
 

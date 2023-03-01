@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/sign_in', to: 'session#create'
       resources :admin_users, only: [:create]
+      resources :dealers, only: [:create]
     end
   end
   # Defines the root path route ("/")
