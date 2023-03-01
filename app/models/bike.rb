@@ -11,5 +11,5 @@ class Bike < ApplicationRecord
                   '80-90': 2 }
 
   # Validation
-  validates_uniqueness_of :dealer_id, scope: [:make, :mileage, :year]
+  validates_uniqueness_of :dealer_id, scope: %i[make mileage year]
 end
