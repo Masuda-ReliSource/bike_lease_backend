@@ -2,6 +2,8 @@
 
 class AdminUser < ApplicationRecord
   has_secure_password validations: false
+  has_secure_token :auth_token, length: 30
+
   # Association
   has_many :created_admins,
            foreign_key: 'created_by',

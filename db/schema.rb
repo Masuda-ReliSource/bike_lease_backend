@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_134957) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_105448) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_134957) do
     t.bigint "created_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "auth_token"
   end
 
   create_table "dealers", force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_134957) do
     t.bigint "admin_users_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "auth_token"
     t.index ["admin_users_id"], name: "index_dealers_on_admin_users_id"
   end
 
