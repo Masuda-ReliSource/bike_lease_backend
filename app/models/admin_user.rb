@@ -9,6 +9,7 @@ class AdminUser < ApplicationRecord
            foreign_key: 'created_by',
            class_name: 'AdminUser'
   has_many :dealers
+  has_many :bike_leases
   belongs_to :main_admin,
              foreign_key: 'created_by',
              class_name: 'AdminUser',

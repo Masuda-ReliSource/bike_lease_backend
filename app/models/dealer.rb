@@ -4,6 +4,7 @@ class Dealer < ApplicationRecord
 
   # Association
   has_many :bikes
+  has_many :bike_leases
   belongs_to :admin_user
 
   # enum

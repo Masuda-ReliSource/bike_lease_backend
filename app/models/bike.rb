@@ -3,6 +3,7 @@
 # Bike class
 class Bike < ApplicationRecord
   # Association
+  has_many :bike_leases
   belongs_to :dealer
 
   # Enum
