@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       resources :admin_users, only: [:create]
       resources :dealers, only: [:create]
       resources :bikes, only: %i[index create]
-      resources :bike_leases, only: [:create]
+      resources :bike_leases, only: %i[index create]
+      put '/bike_leases/approve/', to: 'bike_leases#approve'
     end
   end
   # Defines the root path route ("/")
