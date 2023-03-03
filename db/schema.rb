@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_144907) do
     t.datetime "approved_at"
     t.bigint "bike_id", null: false
     t.bigint "dealer_id", null: false
-    t.bigint "admin_user_id", null: false
+    t.bigint "admin_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_user_id"], name: "index_bike_leases_on_admin_user_id"

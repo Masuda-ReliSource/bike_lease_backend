@@ -8,7 +8,7 @@ class CreateBikeLeases < ActiveRecord::Migration[7.0]
       t.datetime :approved_at
       t.references :bike, foreign_key: true, null: false, index: true
       t.references :dealer, foreign_key: true, null: false, index: true
-      t.references :admin_user, foreign_key: true, null: false, index: true
+      t.references :admin_user, foreign_key: true, null: true, index: true
       t.timestamps
     end
   end

@@ -6,7 +6,7 @@ module Api
     class BikesController < ApplicationController
       def index
         bikes = Bike.where(dealer_id: @current_user.id).order(id: :desc)
-        render json: BikeSerializer.new(bikes).serialized_json, status: :ok
+        render json: bikes, status: :ok
       rescue StandardError => e
         Rails.logger.error("Bike index API failed: #{e.message}")
         render json: failed_response(e.message), status: :internal_server_error
