@@ -7,4 +7,7 @@ class UserSerializer
   attribute :token do |user|
     user.auth_token
   end
+  attribute :user_type do |user|
+    user.class.name.to_s.underscore
+  end
 end
